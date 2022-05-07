@@ -18,7 +18,8 @@ add_compile_options(${CPU_OPTIONS})
 # target_include_directories(pair PUBLIC . src inc fml)
 
 
-add_executable(firmware main.cpp)
+add_executable(firmware main.cpp src/CallArgsParser.cpp)
 
+target_include_directories(firmware PUBLIC inc)
 target_link_libraries(firmware ${LIBS})
 target_compile_options(firmware PUBLIC ${CPU_OPTIONS})
