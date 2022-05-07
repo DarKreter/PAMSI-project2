@@ -7,14 +7,15 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 set(CPU_OPTIONS -Werror -Wall -Wextra -pedantic -ffunction-sections -fdata-sections -Os)
 
-# set(LIBS heap pair)
+set(LIBS movie)
+
 
 add_compile_options(${CPU_OPTIONS})
 
-# add_library(heap src/Heap.cpp inc/Heap.hpp fml/Heap.tpp)
+add_library(movie src/Movie.cpp inc/Movie.hpp)
 # add_library(pair src/Pair.cpp inc/Pair.hpp fml/Pair.tpp)
 
-# target_include_directories(heap PUBLIC . src inc fml)
+target_include_directories(movie PUBLIC src inc)
 # target_include_directories(pair PUBLIC . src inc fml)
 
 
