@@ -1,8 +1,11 @@
 Example usage:
 
 `mkdir build && cd build`
+
 `cmake ..`
+
 `cmake --build . --target firmware`
+
 `./firmware fileName size algorithmType`
 
 fileName - from this file program will read movies
