@@ -1,5 +1,5 @@
-#ifndef MOVIE_H
-#define MOVIE_H
+#ifndef MOVIE_PAMSI_PROJECT_DEFINE_H
+#define MOVIE_PAMSI_PROJECT_DEFINE_H
 
 #include <iostream>
 #include <stdint.h>
@@ -27,4 +27,4 @@ public:
 
 std::ostream& operator<<(std::ostream&, const Movie_t&);
 
-#endif // MOVIE_H
+#endif // MOVIE_PAMSI_PROJECT_DEFINE_H

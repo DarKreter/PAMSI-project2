@@ -1,5 +1,5 @@
-#ifndef ALGORITHMTYPE_H
-#define ALGORITHMTYPE_H
+#ifndef ALGORITHM_TYPE_PAMSI_PROJECT_DEFINE_H
+#define ALGORITHM_TYPE_PAMSI_PROJECT_DEFINE_H
 
 #include <string>
 #include <tuple>
@@ -15,4 +15,4 @@ enum algorithmType_t
 std::tuple<std::string, uint32_t, algorithmType_t> ParseCallArgs(int argc,
                                                                  char* argv[]);
 
-#endif // ALGORITHMTYPE_H
+#endif // ALGORITHM_TYPE_PAMSI_PROJECT_DEFINE_H
