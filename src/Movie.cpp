@@ -26,7 +26,6 @@ Movie_t::Movie_t(std::string s)
         throw std::runtime_error("Wrong database!");
 
     name = w.at(1);
-
     rating = std::stoi(w.at(2));
 }
 
@@ -53,6 +52,11 @@ bool Movie_t::operator==(const Movie_t& second)
 bool Movie_t::operator!=(const Movie_t& second)
 {
     return rating != second.rating;
+}
+
+uint32_t operator+(uint32_t first, Movie_t movie)
+{
+    return first + movie.GetRating();
 }
 
 std::ostream& operator<<(std::ostream& stream, const Movie_t& movie)

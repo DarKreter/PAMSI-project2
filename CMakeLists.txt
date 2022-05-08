@@ -18,6 +18,7 @@ add_library(sort src/Sort.cpp inc/Sort.hpp)
 target_include_directories(movie PUBLIC src inc)
 target_include_directories(sort PUBLIC src inc fml)
 
+add_dependencies(sort movie)
 
 add_executable(firmware main.cpp src/CallArgsParser.cpp)
 

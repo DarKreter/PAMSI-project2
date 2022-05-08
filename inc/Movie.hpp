@@ -25,6 +25,8 @@ public:
     bool operator!=(const Movie_t& second);
 };
 
+// for accumulate
+uint32_t operator+(uint32_t first, Movie_t movie);
 std::ostream& operator<<(std::ostream&, const Movie_t&);
 
 } // namespace pamsi

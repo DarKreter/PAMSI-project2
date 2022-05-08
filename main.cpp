@@ -1,5 +1,6 @@
 #include "CallArgsParser.hpp"
 #include "Movie.hpp"
+#include "Sort.hpp"
 #include <fstream>
 #include <iostream>
 #include <vector>
@@ -21,6 +22,7 @@ int main(int argc, char* argv[])
     ifstream file(fileName);
     string line;
     uint32_t currentSize = 0;
+
     getline(file, line);
     while(getline(file, line) && currentSize++ != size)
         movies.push_back(pamsi::Movie_t(line));
@@ -32,6 +34,7 @@ int main(int argc, char* argv[])
     // Also measure time of sorting
 
     // Calculate mean and middle number
+    cout << pamsi::CalcMeanValue(movies) << endl;
 
     return 0;
 }
