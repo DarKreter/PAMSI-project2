@@ -42,7 +42,7 @@ int main(int argc, char* argv[])
         // bucketsort
         break;
     case pamsi::algorithmType_t::mergesort:
-        // mergesort
+        pamsi::MergeSort(movies, 0, movies.size() - 1);
         break;
     }
 

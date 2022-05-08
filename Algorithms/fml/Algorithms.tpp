@@ -32,6 +32,37 @@ void QuickSort(std::vector<T>& _vector, size_t start, size_t end)
 }
 
 template <typename T>
+void Merge(std::vector<T>& _vector, size_t start_1, size_t end_1,
+           size_t start_2, size_t end_2)
+{
+    std::vector<T> temp;
+    for(size_t i = start_1, j = start_2; i <= end_1 || j <= end_2;) {
+        if(i > end_1)
+            temp.push_back(_vector.at(j++));
+        else if(j > end_2)
+            temp.push_back(_vector.at(i++));
+        else if(_vector.at(i) < _vector.at(j))
+            temp.push_back(_vector.at(i++));
+        else
+            temp.push_back(_vector.at(j++));
+    }
+    for(size_t i = start_1, j = 0; i <= end_2; i++, j++)
+        _vector[i] = temp.at(j);
+}
+
+template <typename T>
+void MergeSort(std::vector<T>& _vector, size_t start, size_t end)
+{
+    if(start >= end)
+        return;
+
+    size_t help = (end - start) / 2 + start;
+    MergeSort(_vector, start, help);
+    MergeSort(_vector, help + 1, end);
+    Merge(_vector, start, help, help + 1, end);
+}
+
+template <typename T>
 double CalcMeanValue(const std::vector<T>& w)
 {
     double sum = std::accumulate(std::begin(w), std::end(w), 0);
