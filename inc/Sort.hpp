@@ -7,6 +7,9 @@
 namespace pamsi {
 
 double CalcMeanValue(const std::vector<Movie_t>&);
+
+double CalcMiddleNumber(const std::vector<Movie_t>&);
+
 } // namespace pamsi
 
 #include "Sort.tpp"

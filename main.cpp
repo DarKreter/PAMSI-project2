@@ -35,6 +35,7 @@ int main(int argc, char* argv[])
 
     // Calculate mean and middle number
     cout << pamsi::CalcMeanValue(movies) << endl;
+    cout << pamsi::CalcMiddleNumber(movies) << endl;
 
     return 0;
 }
