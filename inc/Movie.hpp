@@ -5,6 +5,8 @@
 #include <stdint.h>
 #include <string>
 
+#include <vector>
+
 class Movie_t {
     short rating;
     std::string name;

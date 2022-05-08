@@ -20,11 +20,12 @@ int main(int argc, char* argv[])
 
     // Open file and read X elements
     // Parse each line and put into Movie class
+    getline(file, line);
     while(getline(file, line))
         movies.push_back(Movie_t(line));
 
     std::copy(std::begin(movies), std::end(movies),
-              ostream_iterator<Movie_t>(cout));
+              ostream_iterator<Movie_t>(cout, "\n"));
 
     // Sort with specified algorithm
     // Also measure time of sorting
