@@ -14,9 +14,9 @@ size_t Partition(std::vector<T>& _vector, size_t start, size_t end)
     // Get through all elements and change positions if they are smaller than
     // pivot
     for(size_t i = start; i < end; i++) {
-        if(_vector.at(i) < _vector.at(p)) {
+        if(_vector[i] < _vector[p]) {
             // Swap them
-            std::swap(_vector.at(i), _vector.at(new_p));
+            std::swap(_vector[i], _vector[new_p]);
             new_p++;
         }
     }
@@ -34,8 +34,9 @@ void QuickSort(std::vector<T>& _vector, size_t start, size_t end)
 
     // Divide container into two smaller
     size_t new_p = Partition(_vector, start, end);
+
     // Sort them
-    QuickSort(_vector, start, new_p - 1);
+    QuickSort(_vector, start, (new_p == 0 ? 0 : new_p - 1));
     QuickSort(_vector, new_p + 1, end);
 }
 
@@ -47,18 +48,18 @@ void Merge(std::vector<T>& _vector, size_t start_1, size_t end_1,
     // Go through elements in first and second block
     for(size_t i = start_1, j = start_2; i <= end_1 || j <= end_2;) {
         if(i > end_1)                        // If first one is empty
-            temp.push_back(_vector.at(j++)); // Add second
+            temp.push_back(_vector[j++]); // Add second
         else if(j > end_2)                   // If second is empty
-            temp.push_back(_vector.at(i++)); // Add first
+            temp.push_back(_vector[i++]); // Add first
 
         // If both not empty add smaller
-        else if(_vector.at(i) < _vector.at(j))
-            temp.push_back(_vector.at(i++));
+        else if(_vector.at(i) < _vector[j])
+            temp.push_back(_vector[i++]);
         else
-            temp.push_back(_vector.at(j++));
+            temp.push_back(_vector[j++]);
     }
     for(size_t i = start_1, j = 0; i <= end_2; i++, j++)
-        _vector[i] = temp.at(j);
+        _vector[i] = temp[j];
 }
 
 template <typename T>

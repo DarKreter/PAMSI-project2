@@ -32,7 +32,7 @@ int main(int argc, char* argv[])
 
     // Sort with specified algorithm
     // Also measure time of sorting
-    // auto start = chrono::steady_clock::now();
+    auto start = chrono::steady_clock::now();
 
     switch(algorithmType) {
     case pamsi::algorithmType_t::quicksort:
@@ -46,17 +46,18 @@ int main(int argc, char* argv[])
         break;
     }
 
-    // auto end = chrono::steady_clock::now();
+    auto end = chrono::steady_clock::now();
 
-    std::copy(std::begin(movies), std::end(movies),
-              ostream_iterator<pamsi::Movie_t>(cout, "\n"));
+    // ofstream oFile("test.csv");
+    // std::copy(std::begin(movies), std::end(movies),
+    //           ostream_iterator<pamsi::Movie_t>(oFile, "\n"));
 
-    // cout << chrono::duration_cast<chrono::microseconds>(end - start).count()
-    //      << ",";
+    cout << chrono::duration_cast<chrono::milliseconds>(end - start).count()
+         << ",";
 
-    // // Calculate mean and middle number
-    // cout << pamsi::CalcMeanValue(movies) << ",";
-    // cout << pamsi::CalcMiddleNumber(movies) << endl;
+    // Calculate mean and middle number
+    cout << pamsi::CalcMeanValue(movies) << ",";
+    cout << pamsi::CalcMiddleNumber(movies) << endl;
 
     return 0;
 }
