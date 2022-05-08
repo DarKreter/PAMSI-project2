@@ -29,25 +29,18 @@ int main(int argc, [[maybe_unused]] char* argv[])
     ifstream iFile(iFileName);
     ofstream oFile(oFileName);
 
-    // auto condition = [](Line_t line) -> bool { Movie_t movie(line); }
+    auto condition = [](Line_t line) -> bool {
+        auto splitted = pamsi::Split(line);
+        if(splitted.at(2) == "")
+            return false;
+        return true;
+    };
 
-    // std::copy_if(istream_iterator<Line_t>(iFile), istream_iterator<Line_t>(),
-    //              ostream_iterator<Line_t>(oFile, "\n"), condition);
-
-    // Get csv header
-    // getline(inputFileName, line);
-    // oFile << line << endl;
-    // // Read line by line until end of file or reaching desired size
-    // while(getline(file, line))
-    //     movies.push_back(
-    //         pamsi::Movie_t(line)); // Movie_t has parsing constructor
+    std::copy_if(istream_iterator<Line_t>(iFile), istream_iterator<Line_t>(),
+                 ostream_iterator<Line_t>(oFile, "\n"), condition);
 
     iFile.close();
     oFile.close();
-    // std::tuple
-
-    //         cout
-    //     << "Hello World!" << endl;
 
     return 0;
 }
