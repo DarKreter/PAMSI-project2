@@ -38,7 +38,7 @@ double CalcMiddleNumber(const std::vector<T>& w);
  * @param delimiter delimiter string
  * @return std::vector<std::string> vector of splitted elements
  */
-std::vector<std::string> Split(std::string s, std::string delimiter = ",");
+std::vector<std::string> SplitCSV(std::string s, std::string delimiter = ",");
 
 } // namespace pamsi
 

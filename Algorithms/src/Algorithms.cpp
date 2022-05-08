@@ -2,7 +2,7 @@
 
 namespace pamsi {
 
-std::vector<std::string> Split(std::string s, std::string delimiter)
+std::vector<std::string> SplitCSV(std::string s, std::string delimiter)
 {
     size_t position = 0;
     std::vector<std::string> wektor;

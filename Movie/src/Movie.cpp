@@ -8,7 +8,7 @@ namespace pamsi {
 Movie_t::Movie_t(std::string s)
 {
     // Split string into vector
-    auto w = Split(s);
+    auto w = SplitCSV(s);
 
     // parsing format should have 3 positions in csv
     if(w.size() != 3)

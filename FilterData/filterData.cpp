@@ -30,7 +30,7 @@ int main(int argc, [[maybe_unused]] char* argv[])
     ofstream oFile(oFileName);
 
     auto condition = [](Line_t line) -> bool {
-        auto splitted = pamsi::Split(line);
+        auto splitted = pamsi::SplitCSV(line);
         if(splitted.at(2) == "")
             return false;
         return true;
