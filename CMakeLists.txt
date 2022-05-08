@@ -5,18 +5,18 @@ project(PAMSI LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-set(CPU_OPTIONS -Werror -Wall -Wextra -pedantic -ffunction-sections -fdata-sections -Os)
+# set(CPU_OPTIONS -Werror -Wall -Wextra -pedantic -ffunction-sections -fdata-sections -Os)
 
-set(LIBS movie)
+set(LIBS movie sort)
 
 
 add_compile_options(${CPU_OPTIONS})
 
 add_library(movie src/Movie.cpp inc/Movie.hpp)
-# add_library(pair src/Pair.cpp inc/Pair.hpp fml/Pair.tpp)
+add_library(sort src/Sort.cpp inc/Sort.hpp)
 
 target_include_directories(movie PUBLIC src inc)
-# target_include_directories(pair PUBLIC . src inc fml)
+target_include_directories(sort PUBLIC src inc fml)
 
 
 add_executable(firmware main.cpp src/CallArgsParser.cpp)
