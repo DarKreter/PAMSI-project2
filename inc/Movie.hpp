@@ -5,7 +5,7 @@
 #include <stdint.h>
 #include <string>
 
-#include <vector>
+namespace pamsi {
 
 class Movie_t {
     short rating;
@@ -26,5 +26,7 @@ public:
 };
 
 std::ostream& operator<<(std::ostream&, const Movie_t&);
+
+} // namespace pamsi
 
 #endif // MOVIE_PAMSI_PROJECT_DEFINE_H

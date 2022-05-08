@@ -12,20 +12,21 @@ using namespace std;
 int main(int argc, char* argv[])
 {
     // Get size, algorithm and file name
-    auto [fileName, size, algorithmType] = ParseCallArgs(argc, argv);
+    auto [fileName, size, algorithmType] = pamsi::ParseCallArgs(argc, argv);
 
-    ifstream file(fileName);
-    string line;
-    vector<Movie_t> movies;
+    vector<pamsi::Movie_t> movies;
 
     // Open file and read X elements
     // Parse each line and put into Movie class
+    ifstream file(fileName);
+    string line;
+    uint32_t currentSize = 0;
     getline(file, line);
-    while(getline(file, line))
-        movies.push_back(Movie_t(line));
+    while(getline(file, line) && currentSize++ != size)
+        movies.push_back(pamsi::Movie_t(line));
 
     std::copy(std::begin(movies), std::end(movies),
-              ostream_iterator<Movie_t>(cout, "\n"));
+              ostream_iterator<pamsi::Movie_t>(cout, "\n"));
 
     // Sort with specified algorithm
     // Also measure time of sorting

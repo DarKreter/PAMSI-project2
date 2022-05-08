@@ -2,6 +2,8 @@
 #include <exception>
 #include <vector>
 
+namespace pamsi {
+
 std::vector<std::string> Split(std::string s, std::string delimiter = ",")
 {
     size_t position = 0;
@@ -58,3 +60,5 @@ std::ostream& operator<<(std::ostream& stream, const Movie_t& movie)
     stream << movie.GetName() << ": " << movie.GetRating();
     return stream;
 }
+
+} // namespace pamsi

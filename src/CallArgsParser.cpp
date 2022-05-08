@@ -2,6 +2,8 @@
 #include <cstring>
 #include <stdexcept>
 
+namespace pamsi {
+
 std::tuple<std::string, uint32_t, algorithmType_t> ParseCallArgs(int argc,
                                                                  char* argv[])
 {
@@ -20,3 +22,5 @@ std::tuple<std::string, uint32_t, algorithmType_t> ParseCallArgs(int argc,
 
     return {argv[1], std::stoi(std::string(argv[2])), algorithmType};
 }
+
+} // namespace pamsi
