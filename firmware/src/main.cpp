@@ -30,16 +30,13 @@ int main(int argc, char* argv[])
         movies.push_back(
             pamsi::Movie_t(line)); // Movie_t has parsing constructor
 
-    // std::copy(std::begin(movies), std::end(movies),
-    //           ostream_iterator<pamsi::Movie_t>(cout, "\n"));
-
     // Sort with specified algorithm
     // Also measure time of sorting
-    auto start = chrono::steady_clock::now();
+    // auto start = chrono::steady_clock::now();
 
     switch(algorithmType) {
     case pamsi::algorithmType_t::quicksort:
-        // quicksort
+        pamsi::QuickSort(movies, 0, movies.size() - 1);
         break;
     case pamsi::algorithmType_t::bucketsort:
         // bucketsort
@@ -49,13 +46,17 @@ int main(int argc, char* argv[])
         break;
     }
 
-    auto end = chrono::steady_clock::now();
+    // auto end = chrono::steady_clock::now();
 
-    cout << chrono::duration_cast<chrono::microseconds>(end - start).count() << ",";
+    std::copy(std::begin(movies), std::end(movies),
+              ostream_iterator<pamsi::Movie_t>(cout, "\n"));
 
-    // Calculate mean and middle number
-    cout << pamsi::CalcMeanValue(movies) << ",";
-    cout << pamsi::CalcMiddleNumber(movies) << endl;
+    // cout << chrono::duration_cast<chrono::microseconds>(end - start).count()
+    //      << ",";
+
+    // // Calculate mean and middle number
+    // cout << pamsi::CalcMeanValue(movies) << ",";
+    // cout << pamsi::CalcMiddleNumber(movies) << endl;
 
     return 0;
 }

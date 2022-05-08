@@ -6,6 +6,12 @@
 
 namespace pamsi {
 
+template <typename T>
+size_t Partition(std::vector<T>& _vector, size_t start, size_t end);
+
+template <typename T>
+void QuickSort(std::vector<T>& _vector, size_t start, size_t end);
+
 /**
  * @brief Calculate mean value from dataset.
  *  Use operator+(int, T).
