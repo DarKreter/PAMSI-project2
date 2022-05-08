@@ -12,7 +12,7 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
-    // Get size, algorithm and file name
+    // Get size, algorithm and file _title
     auto [fileName, size, algorithmType] = pamsi::ParseCallArgs(argc, argv);
 
     vector<pamsi::Movie_t> movies;
@@ -23,9 +23,12 @@ int main(int argc, char* argv[])
     string line;
     uint32_t currentSize = 0;
 
+    // Get csv header
     getline(file, line);
+    // Read line by line until end of file or reaching desired size
     while(getline(file, line) && currentSize++ != size)
-        movies.push_back(pamsi::Movie_t(line));
+        movies.push_back(
+            pamsi::Movie_t(line)); // Movie_t has parsing constructor
 
     std::copy(std::begin(movies), std::end(movies),
               ostream_iterator<pamsi::Movie_t>(cout, "\n"));
