@@ -13,8 +13,8 @@ namespace pamsi {
  *
  */
 class Movie_t {
-    short _rating;
     std::string _title;
+    short _rating;
 
 public:
     /**

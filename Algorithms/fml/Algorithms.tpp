@@ -1,4 +1,4 @@
-#include "Sort.hpp"
+#include "Algorithms.hpp"
 #include <numeric>
 
 namespace pamsi {
