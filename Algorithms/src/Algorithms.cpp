@@ -18,10 +18,10 @@ std::vector<std::string> SplitCSV(std::string s, std::string delimiter)
             // quotation mark placed one behind the other
             while(true) {
                 // Find next quotation mark
-                position = s.substr(1).find("\"");
+                position = s.find("\"", 1);
                 // If next one is quotation mark skip this fragment
-                if(s.at(position + 2) == '"') {
-                    s = s.substr(position + 3);
+                if(s.at(position + 1) == '"') {
+                    s = s.substr(position + 2);
                     continue;
                 }
                 // If its single quotation mark, its whole cell
@@ -30,8 +30,8 @@ std::vector<std::string> SplitCSV(std::string s, std::string delimiter)
             }
 
             wektor.push_back(s.substr(1, position));
-            // Cut element (position + substr + quotation mark + delimiter)
-            s = s.substr(position + 3);
+            // Cut element (position + quotation mark + delimiter)
+            s = s.substr(position + 2);
         }
 
         else {
