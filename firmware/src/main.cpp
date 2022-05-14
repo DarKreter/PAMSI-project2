@@ -48,9 +48,9 @@ int main(int argc, char* argv[])
 
     auto end = chrono::steady_clock::now();
 
-    // ofstream oFile("test.csv");
-    // std::copy(std::begin(movies), std::end(movies),
-    //           ostream_iterator<pamsi::Movie_t>(oFile, "\n"));
+    ofstream oFile("test.csv");
+    std::copy(std::begin(movies), std::end(movies),
+              ostream_iterator<pamsi::Movie_t>(oFile, "\n"));
 
     cout << chrono::duration_cast<chrono::milliseconds>(end - start).count()
          << ",";

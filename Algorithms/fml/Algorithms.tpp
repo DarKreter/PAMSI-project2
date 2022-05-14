@@ -6,23 +6,29 @@
 namespace pamsi {
 
 template <typename T>
-size_t Partition(std::vector<T>& _vector, size_t start, size_t end)
+std::tuple<size_t, size_t> Partition(std::vector<T>& _vector, size_t start,
+                                     size_t end)
 {
     // Set pivot at the end
-    size_t p = end;
-    size_t new_p = start;
-    // Get through all elements and change positions if they are smaller than
-    // pivot
-    for(size_t i = start; i < end; i++) {
-        if(_vector[i] < _vector[p]) {
-            // Swap them
-            std::swap(_vector[i], _vector[new_p]);
-            new_p++;
+    T p = _vector[end];
+    size_t new_p_start = start;
+    size_t new_p_end = end;
+
+    // Get through all elements
+    for(size_t i = start; i <= new_p_end; i++) {
+        if(_vector[i] < p) {
+            if(i != new_p_start)
+                std::swap(_vector[i], _vector[new_p_start]);
+            new_p_start++;
+        }
+        else if(_vector[i] > p && i != new_p_end) {
+            std::swap(_vector[i], _vector[new_p_end]);
+            new_p_end--;
+            i--;
         }
     }
-    //
-    std::swap(_vector[new_p], _vector[p]);
-    return new_p;
+
+    return {new_p_start, new_p_end};
 }
 
 template <typename T>
@@ -33,11 +39,11 @@ void QuickSort(std::vector<T>& _vector, size_t start, size_t end)
         return; // That means we reach base condition of recursion
 
     // Divide container into two smaller
-    size_t new_p = Partition(_vector, start, end);
+    auto [p_start, p_end] = Partition(_vector, start, end);
 
     // Sort them
-    QuickSort(_vector, start, (new_p == 0 ? 0 : new_p - 1));
-    QuickSort(_vector, new_p + 1, end);
+    QuickSort(_vector, start, (p_start == 0 ? 0 : p_start - 1));
+    QuickSort(_vector, p_end, end);
 }
 
 template <typename T>

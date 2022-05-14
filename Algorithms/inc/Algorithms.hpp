@@ -2,6 +2,7 @@
 #define ALGORITHMS_PAMSI_PROJECT_DEFINE_H
 
 #include <string>
+#include <tuple>
 #include <vector>
 
 namespace pamsi {
@@ -13,10 +14,11 @@ namespace pamsi {
  * @param _vector container
  * @param start start index
  * @param end end index
- * @return size_t position of pivot
+ * @return size_t start and end position of pivot area
  */
 template <typename T>
-size_t Partition(std::vector<T>& _vector, size_t start, size_t end);
+std::tuple<size_t, size_t> Partition(std::vector<T>& _vector, size_t start,
+                                     size_t end);
 
 /**
  * @brief quicksort function. Sorts _vector
