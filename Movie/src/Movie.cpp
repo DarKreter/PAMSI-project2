@@ -43,11 +43,6 @@ bool Movie_t::operator!=(const Movie_t& second)
     return _rating != second._rating;
 }
 
-uint32_t operator+(uint32_t first, Movie_t movie)
-{
-    return first + movie.GetRating();
-}
-
 std::ostream& operator<<(std::ostream& stream, const Movie_t& movie)
 {
     stream << movie.GetTitle() << ": " << movie.GetRating();

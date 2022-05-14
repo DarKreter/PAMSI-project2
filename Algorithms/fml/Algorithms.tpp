@@ -47,9 +47,9 @@ void Merge(std::vector<T>& _vector, size_t start_1, size_t end_1,
     std::vector<T> temp;
     // Go through elements in first and second block
     for(size_t i = start_1, j = start_2; i <= end_1 || j <= end_2;) {
-        if(i > end_1)                        // If first one is empty
+        if(i > end_1)                     // If first one is empty
             temp.push_back(_vector[j++]); // Add second
-        else if(j > end_2)                   // If second is empty
+        else if(j > end_2)                // If second is empty
             temp.push_back(_vector[i++]); // Add first
 
         // If both not empty add smaller
@@ -82,6 +82,7 @@ template <typename T>
 double CalcMeanValue(const std::vector<T>& w)
 {
     double sum = std::accumulate(std::begin(w), std::end(w), 0);
+    //, [](int a, T b) {return a + b.GetRating();});
 
     return sum / w.size();
 }
