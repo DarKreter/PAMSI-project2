@@ -39,7 +39,7 @@ int main(int argc, char* argv[])
         pamsi::QuickSort(movies, 0, movies.size() - 1);
         break;
     case pamsi::algorithmType_t::bucketsort:
-        // bucketsort
+        pamsi::BucketSort(movies);
         break;
     case pamsi::algorithmType_t::mergesort:
         pamsi::MergeSort(movies, 0, movies.size() - 1);

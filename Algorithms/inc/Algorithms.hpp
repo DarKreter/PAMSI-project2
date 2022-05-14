@@ -57,6 +57,15 @@ template <typename T>
 void MergeSort(std::vector<T>& _vector, size_t start, size_t end);
 
 /**
+ * @brief bucketsort function. Sorts _vector
+ *
+ * @tparam T type of each element in container
+ * @param _vector container
+ */
+template <typename T>
+void BucketSort(std::vector<T>& _vector);
+
+/**
  * @brief Calculate mean value from dataset.
  *
  * @tparam T type of elements in vector
