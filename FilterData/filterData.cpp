@@ -35,14 +35,12 @@ int main(int argc, [[maybe_unused]] char* argv[])
             return false;
         return true;
     };
-
     auto start = chrono::steady_clock::now();
 
     std::copy_if(istream_iterator<Line_t>(iFile), istream_iterator<Line_t>(),
                  ostream_iterator<Line_t>(oFile, "\n"), condition);
 
     auto end = chrono::steady_clock::now();
-
     cout << "Elapsed time: "
          << chrono::duration_cast<chrono::milliseconds>(end - start).count()
          << " ms" << endl;

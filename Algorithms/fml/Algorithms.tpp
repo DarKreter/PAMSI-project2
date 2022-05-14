@@ -1,6 +1,7 @@
 #include "Algorithms.hpp"
+#include <map>
 #include <numeric>
-#include <unordered_map>
+
 
 namespace pamsi {
 
@@ -86,7 +87,7 @@ void MergeSort(std::vector<T>& _vector, size_t start, size_t end)
 template <typename T>
 void BucketSort(std::vector<T>& _vector)
 {
-    std::unordered_map<size_t, std::vector<T>> pom;
+    std::map<size_t, std::vector<T>> pom;
 
     for(const auto& elem : _vector)
         pom[elem - 1].push_back(elem);
