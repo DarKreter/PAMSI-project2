@@ -6,7 +6,11 @@ Example usage:
 
 `cmake --build . --target firmware`
 
-`./firmware fileName size algorithmType`
+`cmake --build . --target FilterData`
+
+`./FilterData/FilterData fileName`
+
+`./firmware/firmware fileName size algorithmType`
 
 `fileName` - from this file program will read movies
 
@@ -14,3 +18,7 @@ Example usage:
 
 `algorithmType` - type of algorithm with which program will sort movies 
         available options: quicksort, mergesort, bucketsort
+
+For full tests use bash script:
+
+`./tests.sh`
