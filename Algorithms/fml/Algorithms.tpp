@@ -2,7 +2,6 @@
 #include <map>
 #include <numeric>
 
-
 namespace pamsi {
 
 template <typename T>
@@ -11,23 +10,26 @@ std::tuple<size_t, size_t> Partition(std::vector<T>& _vector, size_t start,
 {
     // Set pivot at the end
     T p = _vector[end];
+    // Prepare new pivot values
     size_t new_p_start = start;
     size_t new_p_end = end;
 
     // Get through all elements
     for(size_t i = start; i <= new_p_end; i++) {
+        // If its smaller move it to the left
         if(_vector[i] < p) {
             if(i != new_p_start)
                 std::swap(_vector[i], _vector[new_p_start]);
             new_p_start++;
         }
+        // if its bigger move to right
         else if(_vector[i] > p && i != new_p_end) {
             std::swap(_vector[i], _vector[new_p_end]);
             new_p_end--;
             i--;
         }
     }
-
+    // return start and end position of values equal to pivot
     return {new_p_start, new_p_end};
 }
 
@@ -38,7 +40,7 @@ void QuickSort(std::vector<T>& _vector, size_t start, size_t end)
     if(start >= end)
         return; // That means we reach base condition of recursion
 
-    // Divide container into two smaller
+    // Divide container into three smaller
     auto [p_start, p_end] = Partition(_vector, start, end);
 
     // Sort them
@@ -64,6 +66,7 @@ void Merge(std::vector<T>& _vector, size_t start_1, size_t end_1,
         else
             temp.push_back(_vector[j++]);
     }
+    // Copy back to original container
     for(size_t i = start_1, j = 0; i <= end_2; i++, j++)
         _vector[i] = temp[j];
 }
@@ -88,11 +91,12 @@ template <typename T>
 void BucketSort(std::vector<T>& _vector)
 {
     std::map<size_t, std::vector<T>> pom;
-
+    // Add each element to proper bucket
     for(const auto& elem : _vector)
-        pom[elem - 1].push_back(elem);
+        pom[elem].push_back(elem);
 
     size_t i = 0;
+    // Go through map and add every element to default container
     for(auto v : pom)
         for(auto elem : v.second)
             _vector[i++] = elem;
@@ -101,6 +105,7 @@ void BucketSort(std::vector<T>& _vector)
 template <typename T>
 double CalcMeanValue(const std::vector<T>& w)
 {
+    // sum of all elements
     double sum = std::accumulate(std::begin(w), std::end(w), 0);
     //, [](int a, T b) {return a + b.GetRating();});
 

@@ -18,31 +18,6 @@ Movie_t::Movie_t(std::string s)
     _rating = std::stoi(w.at(2));
 }
 
-bool Movie_t::operator<(const Movie_t& second)
-{
-    return _rating < second._rating;
-}
-bool Movie_t::operator>(const Movie_t& second)
-{
-    return _rating > second._rating;
-}
-bool Movie_t::operator<=(const Movie_t& second)
-{
-    return _rating <= second._rating;
-}
-bool Movie_t::operator>=(const Movie_t& second)
-{
-    return _rating >= second._rating;
-}
-bool Movie_t::operator==(const Movie_t& second)
-{
-    return _rating == second._rating;
-}
-bool Movie_t::operator!=(const Movie_t& second)
-{
-    return _rating != second._rating;
-}
-
 std::ostream& operator<<(std::ostream& stream, const Movie_t& movie)
 {
     stream << movie.GetTitle() << ": " << movie.GetRating();

@@ -46,16 +46,6 @@ public:
     short GetRating() const { return _rating; }
 
     /**
-     * @brief Comparison operators based on rating values
-     */
-    bool operator<(const Movie_t& second);
-    bool operator>(const Movie_t& second);
-    bool operator<=(const Movie_t& second);
-    bool operator>=(const Movie_t& second);
-    bool operator==(const Movie_t& second);
-    bool operator!=(const Movie_t& second);
-
-    /**
      * @brief conversion operator to double
      *
      * @return double it's just rating value.

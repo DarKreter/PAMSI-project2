@@ -48,6 +48,7 @@ int main(int argc, char* argv[])
 
     auto end = chrono::steady_clock::now();
 
+    // Visual check
     // ofstream oFile("test.csv");
     // std::copy(std::begin(movies), std::end(movies),
     //           ostream_iterator<pamsi::Movie_t>(oFile, "\n"));
