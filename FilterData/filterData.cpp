@@ -33,6 +33,8 @@ int main(int argc, [[maybe_unused]] char* argv[])
         auto splitted = pamsi::SplitCSV(line);
         if(splitted.at(2) == "")
             return false;
+        else if( static_cast<int>(splitted.at(2)[0]) == 13)
+            return false;
         return true;
     };
     auto start = chrono::steady_clock::now();
